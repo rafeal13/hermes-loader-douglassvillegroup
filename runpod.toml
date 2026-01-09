@@ -1,0 +1,8 @@
+[project]
+name = "hermes3-editor"
+base_image = "vllm/vllm-openai:latest"
+gpu = "NVIDIA A40"
+gpu_count = 1
+disk_size = 50
+volume_mount_path = "/runpod-volume"
+env_vars = { MODEL_NAME = "NousResearch/Hermes-3-Llama-3.1-8B" }
