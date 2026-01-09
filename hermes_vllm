@@ -1,0 +1,17 @@
+# Use the latest official vLLM image
+FROM vllm/vllm-openai:latest
+
+# Set the working directory
+WORKDIR /app
+
+# Force the environment variables (just in case RunPod UI fails)
+ENV MODEL_NAME="NousResearch/Hermes-3-Llama-3.1-70B"
+ENV HUGGING_FACE_HUB_TOKEN="hf_YOUR_TOKEN_HERE" 
+# (You technically don't need a token for Hermes, but good to have the slot ready)
+
+# The Critical Part: A custom entrypoint script that ignores RunPod's defaults
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+
+# Tell Docker to run our script, not theirs
+ENTRYPOINT ["/start.sh"]
