@@ -1,0 +1,16 @@
+# Python internals
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Model weights (These belong on RunPod Volume, not GitHub)
+*.safetensors
+*.bin
+*.pt
+*.pth
+/models/
+
+# System files
+.DS_Store
